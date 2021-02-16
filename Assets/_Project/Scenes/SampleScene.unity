@@ -300,3 +300,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingPosition: {x: 0, y: -4.5, z: 0}
   speed: 15
+  boundary:
+    top: -4.5
+    bottom: -4.5
+    left: -8
+    right: 8
