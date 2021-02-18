@@ -25,5 +25,57 @@ namespace KelvarJadewalker.KaBreak.balls
             newDirection *= Time.fixedDeltaTime * speed;
             _rigidbody.MovePosition(_rigidbody.position + newDirection);
         }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            var dx = currentDirection.x;
+            var dy= currentDirection.y;
+
+            var hitFactorX = HitFactorX(transform.position, 
+                                          other.transform.position, 
+                                          other.collider.bounds.size.x);
+
+            if (other.gameObject.CompareTag("Paddle"))
+            {
+                dx = hitFactorX;
+                dy = -currentDirection.y;
+            }
+            else if(other.gameObject.CompareTag("TopWall"))
+            {
+                dx = currentDirection.x;
+                dy = -currentDirection.y;
+                
+            }
+            else if (other.gameObject.CompareTag("SideWall"))
+            {
+                dx = -currentDirection.x;
+                dy = currentDirection.y;
+            }
+            
+            
+            
+            currentDirection = new Vector2(dx, dy);
+            
+          
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag("BottomWall"))
+            {
+                gameObject.SetActive(false);
+            }
+        }
+
+        private static float HitFactorX(Vector2 ballPosition, Vector2 paddlePosition, float paddleWidth)
+        {
+            // ||  1 <- at the left side of the paddle / brick
+            // ||
+            // ||  0 <- at the middle of the paddle / brick
+            // ||
+            // || -1 <- at the right of the paddle / brick
+
+            return (ballPosition.x - paddlePosition.x) / paddleWidth;
+        }
     }
 }
