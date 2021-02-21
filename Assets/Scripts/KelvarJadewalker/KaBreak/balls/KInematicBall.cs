@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace KelvarJadewalker.KaBreak.balls
 {
@@ -8,28 +7,28 @@ namespace KelvarJadewalker.KaBreak.balls
         [SerializeField] private float initialSpeed = 5.0f;
 
 
-        private float speed;
-        private Vector2 currentDirection = new Vector2(0.0f, -1.0f);
+        private float _speed;
+        private Vector2 _currentDirection = new Vector2(0.0f, -1.0f);
         private Rigidbody2D _rigidbody;
         
         // Start is called before the first frame update
         private void Start()
         {
-            speed = initialSpeed;
+            _speed = initialSpeed;
             _rigidbody = GetComponent<Rigidbody2D>();
         }
 
         private void FixedUpdate()
         {
-            var newDirection = new Vector2(currentDirection.x, currentDirection.y);
-            newDirection *= Time.fixedDeltaTime * speed;
+            var newDirection = new Vector2(_currentDirection.x, _currentDirection.y);
+            newDirection *= Time.fixedDeltaTime * _speed;
             _rigidbody.MovePosition(_rigidbody.position + newDirection);
         }
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            var dx = currentDirection.x;
-            var dy= currentDirection.y;
+            var dx = _currentDirection.x;
+            var dy= _currentDirection.y;
 
             var hitFactorX = HitFactorX(transform.position, 
                                           other.transform.position, 
@@ -38,23 +37,23 @@ namespace KelvarJadewalker.KaBreak.balls
             if (other.gameObject.CompareTag("Paddle"))
             {
                 dx = hitFactorX;
-                dy = -currentDirection.y;
+                dy = -_currentDirection.y;
             }
             else if(other.gameObject.CompareTag("TopWall"))
             {
-                dx = currentDirection.x;
-                dy = -currentDirection.y;
+                dx = _currentDirection.x;
+                dy = -_currentDirection.y;
                 
             }
             else if (other.gameObject.CompareTag("SideWall"))
             {
-                dx = -currentDirection.x;
-                dy = currentDirection.y;
+                dx = -_currentDirection.x;
+                dy = _currentDirection.y;
             }
             
             
             
-            currentDirection = new Vector2(dx, dy);
+            _currentDirection = new Vector2(dx, dy);
             
           
         }
