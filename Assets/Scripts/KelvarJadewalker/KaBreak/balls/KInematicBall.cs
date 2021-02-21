@@ -12,7 +12,7 @@ namespace KelvarJadewalker.KaBreak.balls
         private Rigidbody2D _rigidbody;
         private GameManager _gameManager;
         private float _speed;
-
+ 
         private void Awake()
         {
             _gameManager = FindObjectOfType<GameManager>();
@@ -24,6 +24,18 @@ namespace KelvarJadewalker.KaBreak.balls
         {
             _speed = initialSpeed;
             _rigidbody = GetComponent<Rigidbody2D>();
+        }
+
+        private void Update()
+        {
+            if (_gameManager.GameIsActive) return;
+            ExitGame();
+        }
+
+        private void ExitGame()
+        {
+            // If the Game Manager stops the game kill this object
+            Destroy(gameObject);
         }
 
         private void FixedUpdate()

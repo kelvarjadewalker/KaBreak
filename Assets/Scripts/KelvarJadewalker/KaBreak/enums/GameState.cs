@@ -5,7 +5,9 @@
         Starting,
         Running,
         LevelStart,
-        LevelOver,
-        GameOver
+        LevelLost,
+        LevelWon,
+        GameWon,
+        GameLost
     }
 }
