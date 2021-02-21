@@ -7,6 +7,8 @@ namespace KelvarJadewalker.KaBreak.bricks
         [SerializeField] private bool isDestructible = true;
 
         private GameManager _gameManager;
+        
+        public bool IsDestructible => isDestructible;
 
         private void Awake()
         {
@@ -19,5 +21,8 @@ namespace KelvarJadewalker.KaBreak.bricks
             _gameManager.LostBrick();
             Destroy(gameObject);
         }
+        
+
+        
     }
 }

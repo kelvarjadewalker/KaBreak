@@ -168,6 +168,7 @@ MonoBehaviour:
     type: 3}
   ballStart: {fileID: 1908303121}
   maxNumberOfLives: 3
+  numberOfLevels: 1
 --- !u!1 &167977819
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,6 +889,7 @@ GameObject:
   - component: {fileID: 1652520371}
   - component: {fileID: 1652520370}
   - component: {fileID: 1652520372}
+  - component: {fileID: 1652520373}
   m_Layer: 0
   m_Name: Brick
   m_TagString: Brick
@@ -985,6 +987,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1652520373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652520369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ce98da34b269f4da51ab540cded134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDestructible: 1
 --- !u!1 &1908303120
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using KelvarJadewalker.KaBreak.bricks;
 using KelvarJadewalker.KaBreak.enums;
 using UnityEngine;
@@ -41,8 +42,7 @@ namespace KelvarJadewalker.KaBreak
         private void Awake()
         {
             _gameState = GameState.Starting;
-            var bricks = FindObjectsOfType<Brick>();
-            _numberOfBricks = bricks.Length;
+            _numberOfBricks = GetNumberOfDestructibleBricks();
             
             // TODO : come up with a persistant scene to scene way to track this
             _numberOfLives = maxNumberOfLives;
@@ -144,6 +144,13 @@ namespace KelvarJadewalker.KaBreak
         {
             _numberOfBricks--;
             if (_numberOfBricks <= 0) _gameState = GameState.LevelWon;
+        }
+        
+        private int GetNumberOfDestructibleBricks()
+        { 
+            // Since not every Brick using the Brick script can be destroyed we need to account for this
+            var bricks = FindObjectsOfType<Brick>();
+            return bricks.Count(brick => brick.IsDestructible);
         }
     }
 }
