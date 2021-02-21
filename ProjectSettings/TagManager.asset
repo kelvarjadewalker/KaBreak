@@ -10,6 +10,7 @@ TagManager:
   - TopWall
   - SideWall
   - BottomWall
+  - Brick
   layers:
   - Default
   - TransparentFX

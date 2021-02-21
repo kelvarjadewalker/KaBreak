@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace KelvarJadewalker.KaBreak.balls
 {
@@ -6,11 +7,18 @@ namespace KelvarJadewalker.KaBreak.balls
     {
         [SerializeField] private float initialSpeed = 5.0f;
 
-
-        private float _speed;
-        private Vector2 _currentDirection = new Vector2(0.0f, -1.0f);
+        // by convention the ball will move up when instantiated 
+        private Vector2 _currentDirection = new Vector2(0.0f, 1.0f);
         private Rigidbody2D _rigidbody;
-        
+        private GameManager _gameManager;
+        private float _speed;
+
+        private void Awake()
+        {
+            _gameManager = FindObjectOfType<GameManager>();
+        }
+
+
         // Start is called before the first frame update
         private void Start()
         {
@@ -39,6 +47,11 @@ namespace KelvarJadewalker.KaBreak.balls
                 dx = hitFactorX;
                 dy = -_currentDirection.y;
             }
+            else if (other.gameObject.CompareTag("Brick"))
+            {
+                dx = hitFactorX;
+                dy = -_currentDirection.y;
+            }
             else if(other.gameObject.CompareTag("TopWall"))
             {
                 dx = _currentDirection.x;
@@ -60,10 +73,10 @@ namespace KelvarJadewalker.KaBreak.balls
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("BottomWall"))
-            {
-                gameObject.SetActive(false);
-            }
+            if (!other.gameObject.CompareTag("BottomWall")) return;
+            
+            _gameManager.LostBall();
+            Destroy(gameObject);
         }
 
         private static float HitFactorX(Vector2 ballPosition, Vector2 paddlePosition, float paddleWidth)
