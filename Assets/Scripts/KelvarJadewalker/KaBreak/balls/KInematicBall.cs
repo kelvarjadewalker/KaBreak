@@ -1,11 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace KelvarJadewalker.KaBreak.balls
 {
     public class KinematicBall : MonoBehaviour
     {
         [SerializeField] private float initialSpeed = 5.0f;
+        
 
         // by convention the ball will move up when instantiated 
         private Vector2 _currentDirection = new Vector2(0.0f, 1.0f);
