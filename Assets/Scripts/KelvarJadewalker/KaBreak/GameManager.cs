@@ -21,11 +21,15 @@ namespace KelvarJadewalker.KaBreak
         private int _numberOfLives;
         private int _ballsInPlay;
         private int thisLevel = 1;
+        private int _score;
         
         private void OnGUI()
         {
             var numberOfBricksText = "Number of Bricks : " + _numberOfBricks;
             var numberOfLivesText = "Number of Lives :" + _numberOfLives;
+            var scoreText = "Score : " + _score;
+            
+            GUI.Label(new Rect(25, 25, 300, 50),  scoreText );
             
             if (_gameState == GameState.GameLost || _gameState == GameState.GameWon)
             {
@@ -42,7 +46,7 @@ namespace KelvarJadewalker.KaBreak
         private void Awake()
         {
             _gameState = GameState.Starting;
-            _numberOfBricks = GetNumberOfDestructibleBricks();
+             _numberOfBricks = GetNumberOfDestructibleBricks();
             
             // TODO : come up with a persistant scene to scene way to track this
             _numberOfLives = maxNumberOfLives;
@@ -50,6 +54,7 @@ namespace KelvarJadewalker.KaBreak
          private void Start()
          { 
              _ballsInPlay = 0;
+             _score = 0;
              _gameState = GameState.LevelStart;
              GameIsActive = true;
          }
@@ -140,9 +145,10 @@ namespace KelvarJadewalker.KaBreak
             if (_ballsInPlay <= 0) _gameState = GameState.LevelLost;
         }
 
-        public void LostBrick()
+        public void LostBrick(int score=0)
         {
             _numberOfBricks--;
+            _score += score;
             if (_numberOfBricks <= 0) _gameState = GameState.LevelWon;
         }
         
