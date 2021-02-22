@@ -150,6 +150,7 @@ namespace KelvarJadewalker.KaBreak
         { 
             // Since not every Brick using the Brick script can be destroyed we need to account for this
             var bricks = FindObjectsOfType<Brick>();
+            // Not a pro with LINQ expressions but this replaces a for loop
             return bricks.Count(brick => brick.IsDestructible);
         }
     }
