@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace KelvarJadewalker.KaBreak.balls
 {
     public class KinematicBall : MonoBehaviour
     {
         [SerializeField] private float initialSpeed = 5.0f;
+        [SerializeField] private float minimumSpeedFactor = 1.0f;
+        [SerializeField] private float maximumSpeedFactor = 5.0f;
         
 
         // by convention the ball will move up when instantiated 
@@ -12,6 +15,7 @@ namespace KelvarJadewalker.KaBreak.balls
         private Rigidbody2D _rigidbody;
         private GameManager _gameManager;
         private float _speed;
+        private float _speedFactor;
  
         private void Awake()
         {
@@ -23,6 +27,7 @@ namespace KelvarJadewalker.KaBreak.balls
         private void Start()
         {
             _speed = initialSpeed;
+            _speedFactor = 1.0f;
             _rigidbody = GetComponent<Rigidbody2D>();
         }
 
@@ -41,7 +46,7 @@ namespace KelvarJadewalker.KaBreak.balls
         private void FixedUpdate()
         {
             var newDirection = new Vector2(_currentDirection.x, _currentDirection.y);
-            newDirection *= Time.fixedDeltaTime * _speed;
+            newDirection *= Time.fixedDeltaTime * _speed * _speedFactor;
             _rigidbody.MovePosition(_rigidbody.position + newDirection);
         }
 
@@ -100,6 +105,15 @@ namespace KelvarJadewalker.KaBreak.balls
             // || -1 <- at the right of the paddle / brick
 
             return (ballPosition.x - paddlePosition.x) / paddleWidth;
+        }
+
+        public void SetSpeedFactor(float factor)
+        {
+            // Ignore if the same value
+            if(Math.Abs(_speedFactor - factor) < 0.001f) return;
+            
+            // Allows the player to be influenced by object that has been hit
+            _speedFactor = Mathf.Clamp(factor, minimumSpeedFactor, maximumSpeedFactor);
         }
     }
 }

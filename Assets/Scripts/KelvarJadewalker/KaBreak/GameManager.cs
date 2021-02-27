@@ -20,7 +20,7 @@ namespace KelvarJadewalker.KaBreak
         private int _numberOfBricks;
         private int _numberOfLives;
         private int _ballsInPlay;
-        private int thisLevel = 1;
+        private const int ThisLevel = 1;
         private int _score;
         
         private void OnGUI()
@@ -111,7 +111,7 @@ namespace KelvarJadewalker.KaBreak
         private void LevelWon()
         {
             // By convention the levels will be set in the Build Order so we can do math to get the next level
-            var nextLevel = thisLevel + 1;
+            var nextLevel = ThisLevel + 1;
             
             // For now there is just this level so this will always be true
             if (nextLevel >= numberOfLevels) _gameState = GameState.GameWon;

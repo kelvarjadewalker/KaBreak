@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using KelvarJadewalker.KaBreak.balls;
 
 namespace KelvarJadewalker.KaBreak.bricks
 {
@@ -7,6 +8,7 @@ namespace KelvarJadewalker.KaBreak.bricks
         
         [SerializeField] private int pointsPerBrick = 1;
         [Range (1, 5)][SerializeField] private int hitsPerBrick = 1;
+        [Range (1, 3)][SerializeField] private float speedUpFactor = 1.0f;
         [SerializeField] private bool isDestructible = true;
         [SerializeField] private bool usePrototypeColors = true;
         
@@ -15,6 +17,7 @@ namespace KelvarJadewalker.KaBreak.bricks
         private GameManager _gameManager;
         private SpriteRenderer _spriteRenderer;
         private int _hitsRemaining;
+        private int _timesHit;
         
 
         private void Awake()
@@ -26,6 +29,7 @@ namespace KelvarJadewalker.KaBreak.bricks
         private void Start()
         {
             _hitsRemaining = hitsPerBrick;
+            _timesHit = 0;
             SetBrickDisplay();
 
         }
@@ -33,13 +37,23 @@ namespace KelvarJadewalker.KaBreak.bricks
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (!isDestructible || !other.gameObject.CompareTag("Player")) return;
+            _timesHit++;
             _hitsRemaining--;
+
+            // We will apply a speedup/slowdown only on the first hit
+            if (_timesHit == 1)
+            {
+                var player = other.gameObject.GetComponent<KinematicBall>();
+                if(player != null) player.SetSpeedFactor(speedUpFactor);
+            }
+            
+            
             if (_hitsRemaining > 0)
             {
                 SetBrickDisplay();
                 return;
             }
-            _gameManager.LostBrick(pointsPerBrick);
+            _gameManager.LostBrick(pointsPerBrick * hitsPerBrick);
             Destroy(gameObject);
         }
 
