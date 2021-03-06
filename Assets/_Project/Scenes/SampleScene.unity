@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointsPerBrick: 1
   hitsPerBrick: 4
+  speedUpFactor: 2
   isDestructible: 1
   usePrototypeColors: 1
 --- !u!61 &142610118
@@ -240,7 +241,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142610116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.28, y: 0, z: 0}
+  m_LocalPosition: {x: -2.64, y: 2.5, z: 0}
   m_LocalScale: {x: 1.1, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -660,6 +661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointsPerBrick: 1
   hitsPerBrick: 5
+  speedUpFactor: 1
   isDestructible: 0
   usePrototypeColors: 1
 --- !u!61 &898213107
@@ -746,7 +748,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 898213105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06, y: 1.76, z: 0}
+  m_LocalPosition: {x: -0.06, y: 1.53, z: 0}
   m_LocalScale: {x: 1.1, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -785,6 +787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointsPerBrick: 1
   hitsPerBrick: 5
+  speedUpFactor: 3
   isDestructible: 1
   usePrototypeColors: 1
 --- !u!61 &1022443511
@@ -871,7 +874,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022443509}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.58, y: 0, z: 0}
+  m_LocalPosition: {x: 3, y: 2.5, z: 0}
   m_LocalScale: {x: 1.1, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1039,6 +1042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointsPerBrick: 1
   hitsPerBrick: 2
+  speedUpFactor: 1
   isDestructible: 1
   usePrototypeColors: 1
 --- !u!61 &1184471262
@@ -1125,7 +1129,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184471260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.33, y: 0, z: 0}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
   m_LocalScale: {x: 1.1, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1380,6 +1384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointsPerBrick: 1
   hitsPerBrick: 3
+  speedUpFactor: 1
   isDestructible: 1
   usePrototypeColors: 1
 --- !u!61 &1339411082
@@ -1626,6 +1631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointsPerBrick: 1
   hitsPerBrick: 1
+  speedUpFactor: 1
   isDestructible: 1
   usePrototypeColors: 1
 --- !u!1 &1908303120

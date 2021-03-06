@@ -22,7 +22,6 @@ namespace KelvarJadewalker.KaBreak.balls
             _gameManager = FindObjectOfType<GameManager>();
         }
 
-
         // Start is called before the first frame update
         private void Start()
         {
@@ -80,12 +79,7 @@ namespace KelvarJadewalker.KaBreak.balls
                 dx = -_currentDirection.x;
                 dy = _currentDirection.y;
             }
-            
-            
-            
             _currentDirection = new Vector2(dx, dy);
-            
-          
         }
 
         private void OnTriggerEnter2D(Collider2D other)

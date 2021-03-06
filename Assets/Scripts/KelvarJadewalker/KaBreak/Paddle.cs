@@ -33,8 +33,7 @@ namespace KelvarJadewalker.KaBreak
             var newPosition = new Vector3(xMovement, yMovement, zMovement);
             currentPosition +=  newPosition * (speed * Time.deltaTime);
             currentPosition.x = Mathf.Clamp(currentPosition.x, boundary.left, boundary.right);
-            
-
+    
             transform.position = currentPosition;
         }
     }
