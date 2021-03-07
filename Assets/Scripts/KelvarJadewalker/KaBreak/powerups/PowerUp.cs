@@ -1,19 +1,32 @@
-﻿using UnityEngine;
+﻿using KelvarJadewalker.KaBreak.enums;
+using UnityEngine;
 
 namespace KelvarJadewalker.KaBreak.powerups
 {
     public class PowerUp : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        [SerializeField] private PowerUpTypes powerUpType = PowerUpTypes.Blue;
+
+        private LevelManager _levelManager;
+
+        private void Start()
         {
-        
+            _levelManager = FindObjectOfType<LevelManager>();
         }
 
-        // Update is called once per frame
-        void Update()
+        private void OnTriggerEnter2D(Collider2D other)
         {
-        
+            if (other.gameObject.CompareTag("Paddle"))
+            {
+                _levelManager.CollectedPowerUp(powerUpType);
+                Destroy(gameObject);
+            }
+            else if (other.gameObject.CompareTag("BottomWall"))
+            {
+                Debug.Log("Power Up Lost");
+                Destroy(gameObject);
+            }
+            
         }
     }
 }
