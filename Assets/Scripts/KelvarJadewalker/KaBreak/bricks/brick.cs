@@ -14,7 +14,7 @@ namespace KelvarJadewalker.KaBreak.bricks
         
         public bool IsDestructible => isDestructible;
         
-        private GameManager _gameManager;
+        private LevelManager _levelManager;
         private SpriteRenderer _spriteRenderer;
         private int _hitsRemaining;
         private int _timesHit;
@@ -22,12 +22,14 @@ namespace KelvarJadewalker.KaBreak.bricks
 
         private void Awake()
         {
-            _gameManager = FindObjectOfType<GameManager>();
+             
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         private void Start()
         {
+            _levelManager = FindObjectOfType<LevelManager>();
+            
             _hitsRemaining = hitsPerBrick;
             _timesHit = 0;
             SetBrickDisplay();
@@ -53,7 +55,8 @@ namespace KelvarJadewalker.KaBreak.bricks
                 SetBrickDisplay();
                 return;
             }
-            _gameManager.LostBrick(pointsPerBrick * hitsPerBrick);
+             
+            _levelManager.LostBrick(pointsPerBrick * hitsPerBrick, transform);
             Destroy(gameObject);
         }
 

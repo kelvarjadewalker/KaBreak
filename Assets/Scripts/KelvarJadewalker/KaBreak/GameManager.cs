@@ -15,6 +15,7 @@ namespace KelvarJadewalker.KaBreak
         [SerializeField] private int numberOfLevels = 1;
         
         public bool GameIsActive { get; private set; }
+        private LevelManager _levelManager;
 
         private GameState _gameState;
         private int _numberOfBricks;
@@ -46,13 +47,15 @@ namespace KelvarJadewalker.KaBreak
         private void Awake()
         {
             _gameState = GameState.Starting;
-             _numberOfBricks = GetNumberOfDestructibleBricks();
+             
             
             // TODO : come up with a persistant scene to scene way to track this
             _numberOfLives = maxNumberOfLives;
         }
          private void Start()
-         { 
+         {
+             _levelManager = FindObjectOfType<LevelManager>();
+             _numberOfBricks = _levelManager.GetNumberOfDestructibleBricks();
              _ballsInPlay = 0;
              _score = 0;
              _gameState = GameState.LevelStart;
@@ -152,12 +155,6 @@ namespace KelvarJadewalker.KaBreak
             if (_numberOfBricks <= 0) _gameState = GameState.LevelWon;
         }
         
-        private int GetNumberOfDestructibleBricks()
-        { 
-            // Since not every Brick using the Brick script can be destroyed we need to account for this
-            var bricks = FindObjectsOfType<Brick>();
-            // Not a pro with LINQ expressions but this replaces a for loop
-            return bricks.Count(brick => brick.IsDestructible);
-        }
+        
     }
 }
