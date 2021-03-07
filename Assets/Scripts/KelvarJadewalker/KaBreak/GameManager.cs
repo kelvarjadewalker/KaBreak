@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-using KelvarJadewalker.KaBreak.bricks;
 using KelvarJadewalker.KaBreak.enums;
 using UnityEngine;
 using UnityEngine.SceneManagement;
