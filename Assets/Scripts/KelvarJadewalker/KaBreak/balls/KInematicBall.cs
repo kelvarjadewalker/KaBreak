@@ -8,6 +8,7 @@ namespace KelvarJadewalker.KaBreak.balls
         [SerializeField] private float initialSpeed = 5.0f;
         [SerializeField] private float minimumSpeedFactor = 1.0f;
         [SerializeField] private float maximumSpeedFactor = 5.0f;
+        [SerializeField] private Sprite alternateSprite = null;
         
 
         // by convention the ball will move up when instantiated 

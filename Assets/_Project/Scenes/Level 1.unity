@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ccbe757e2b144f43851528eb43ef64d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 3879115965447050046, guid: dc3ab9a6905439c45b7ffbcae541e39a,
+  ballPrefab: {fileID: 8175818767505934208, guid: a3528e008b77929499706fe6c2befe67,
     type: 3}
   ballStart: {fileID: 1908303121}
   maxNumberOfLives: 3
@@ -473,7 +473,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
