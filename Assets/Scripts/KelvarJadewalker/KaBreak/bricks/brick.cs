@@ -11,11 +11,17 @@ namespace KelvarJadewalker.KaBreak.bricks
         [Range (1, 3)][SerializeField] private float speedUpFactor = 1.0f;
         [SerializeField] private bool isDestructible = true;
         [SerializeField] private bool usePrototypeColors = true;
+
+        [Header("Sprites")] 
+        [SerializeField] private Sprite[] alternateSprites = null;
+        
+        
         
         public bool IsDestructible => isDestructible;
         
         private LevelManager _levelManager;
         private SpriteRenderer _spriteRenderer;
+        private Sprite defaultSprite;
         private int _hitsRemaining;
         private int _timesHit;
         
@@ -29,6 +35,7 @@ namespace KelvarJadewalker.KaBreak.bricks
         private void Start()
         {
             _levelManager = FindObjectOfType<LevelManager>();
+            defaultSprite = _spriteRenderer.sprite;
             
             _hitsRemaining = hitsPerBrick;
             _timesHit = 0;
@@ -105,8 +112,19 @@ namespace KelvarJadewalker.KaBreak.bricks
 
         private void AssignSprite()
         {
-            // TODO : Implement code to change the sprite based on hits remaining
-            Debug.Log("Need to implement code to change the sprite");
+            // Indestructible bricks do not change
+            if (!isDestructible) return;
+            if (_hitsRemaining <= 1)
+            {
+                _spriteRenderer.sprite = defaultSprite;
+                return;
+            }
+
+            // Prevent any silly null reference errors
+            var maxSprites = alternateSprites.Length -1;
+            var spriteIndex = Mathf.Clamp(_hitsRemaining - 2, 0, maxSprites);
+
+            _spriteRenderer.sprite = alternateSprites[spriteIndex];
         }
         
     }
