@@ -85,6 +85,8 @@ namespace KelvarJadewalker.KaBreak
                 case GameState.GameWon:
                     GameWon();
                     break;
+                case GameState.LevelGeneration:
+                    break;
                 default:
                     // This should never happen but we'll leave for de-bugging
                     throw new ArgumentOutOfRangeException();

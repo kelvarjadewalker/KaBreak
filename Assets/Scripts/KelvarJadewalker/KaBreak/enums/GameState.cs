@@ -4,6 +4,7 @@
     {
         Starting,
         Running,
+        LevelGeneration,
         LevelStart,
         LevelLost,
         LevelWon,
