@@ -11,6 +11,7 @@ namespace KelvarJadewalker.KaBreak
         [SerializeField] private Transform ballStart = null;
         [SerializeField] private int maxNumberOfLives = 3;
         [SerializeField] private int numberOfLevels = 1;
+        [Range(1,5)][SerializeField] private int setLevel = 1;
         
         public bool GameIsActive { get; private set; }
         private LevelManager _levelManager;
@@ -53,6 +54,10 @@ namespace KelvarJadewalker.KaBreak
          private void Start()
          {
              _levelManager = FindObjectOfType<LevelManager>();
+             
+             // Allow the designer to test arbitrary levels, this is only allowed on game start
+             if(setLevel > 1) thisLevel = setLevel;
+             
              _gameState = GameState.LevelGeneration;
              _levelManager.GenerateLevel(thisLevel);
              
