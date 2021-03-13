@@ -1019,6 +1019,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: brickRed
       objectReference: {fileID: 0}
+    - target: {fileID: 8274756808452814982, guid: 8ef1d4595fe0bbe40a675b4eba76dc55,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ef1d4595fe0bbe40a675b4eba76dc55, type: 3}
 --- !u!1 &187113283
@@ -2640,6 +2645,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: brickBlue (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8274756808452814982, guid: 8ef1d4595fe0bbe40a675b4eba76dc55,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ef1d4595fe0bbe40a675b4eba76dc55, type: 3}
 --- !u!1 &438377529
@@ -2804,6 +2814,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: brickPurple
+      objectReference: {fileID: 0}
+    - target: {fileID: 8274756808452814982, guid: 8ef1d4595fe0bbe40a675b4eba76dc55,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ef1d4595fe0bbe40a675b4eba76dc55, type: 3}
@@ -4338,6 +4353,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: brickYellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 8274756808452814982, guid: 8ef1d4595fe0bbe40a675b4eba76dc55,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ef1d4595fe0bbe40a675b4eba76dc55, type: 3}
@@ -6189,6 +6209,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: IndestructibleBrick (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487575762557095286, guid: cbcc34fd5b24ab742b07e0ecb9576bbe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbcc34fd5b24ab742b07e0ecb9576bbe, type: 3}
@@ -11280,6 +11305,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: brickGreen
       objectReference: {fileID: 0}
+    - target: {fileID: 8274756808452814982, guid: 8ef1d4595fe0bbe40a675b4eba76dc55,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ef1d4595fe0bbe40a675b4eba76dc55, type: 3}
 --- !u!1 &2052278758
@@ -11835,6 +11865,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: IndestructibleBrick
       objectReference: {fileID: 0}
+    - target: {fileID: 1487575762557095286, guid: cbcc34fd5b24ab742b07e0ecb9576bbe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbcc34fd5b24ab742b07e0ecb9576bbe, type: 3}
 --- !u!1001 &8274756807888227639
@@ -11862,7 +11897,7 @@ PrefabInstance:
     - target: {fileID: 8274756808452814980, guid: 8ef1d4595fe0bbe40a675b4eba76dc55,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8274756808452814980, guid: 8ef1d4595fe0bbe40a675b4eba76dc55,
         type: 3}
@@ -11908,6 +11943,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: brickBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8274756808452814982, guid: 8ef1d4595fe0bbe40a675b4eba76dc55,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ef1d4595fe0bbe40a675b4eba76dc55, type: 3}

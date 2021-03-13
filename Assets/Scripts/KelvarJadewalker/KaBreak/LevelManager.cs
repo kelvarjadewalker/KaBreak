@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using KelvarJadewalker.KaBreak.bricks;
 using KelvarJadewalker.KaBreak.enums;
+using UnityEditorInternal;
 using UnityEngine;
 
 namespace KelvarJadewalker.KaBreak
@@ -25,15 +26,18 @@ namespace KelvarJadewalker.KaBreak
         
         // The Level manager handles game related object for this scene/level
         private GameManager _gameManager;
+        private LevelGenerator _levelGenerator;
 
-        
+        private void Awake()
+        {
+            // By convention these are guaranteed to exist
+            _gameManager = FindObjectOfType<GameManager>();
+            _levelGenerator = FindObjectOfType<LevelGenerator>();
+        }
 
         // Start is called before the first frame update
         private void Start()
         {
-            // By convention this is guaranteed to exist
-            _gameManager = FindObjectOfType<GameManager>();
-
             _numberOfBricks = GetNumberOfDestructibleBricks();
             _numberOfPowerUps = powerUps.Length;
            
@@ -91,6 +95,13 @@ namespace KelvarJadewalker.KaBreak
             }
         }
 
+        public void GenerateLevel(int level)
+        {
+            // Level Generator is a separate script. We could call it from Game Manager but we'll
+            // only call it here so we can pass any level specific detail here.
+            Debug.Log("Generating level");
+            _levelGenerator.Generate(level);
+        }
         
     }
 }

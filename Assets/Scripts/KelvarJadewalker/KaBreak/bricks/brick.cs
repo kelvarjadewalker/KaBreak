@@ -13,6 +13,7 @@ namespace KelvarJadewalker.KaBreak.bricks
         [SerializeField] private bool usePrototypeColors = true;
 
         [Header("Sprites")] 
+        [SerializeField] private Sprite indestructibleSprite = null;
         [SerializeField] private Sprite[] alternateSprites = null;
         
         
@@ -113,7 +114,11 @@ namespace KelvarJadewalker.KaBreak.bricks
         private void AssignSprite()
         {
             // Indestructible bricks do not change
-            if (!isDestructible) return;
+            if (!isDestructible)
+            {
+                _spriteRenderer.sprite = indestructibleSprite;
+                return;
+            }
             if (_hitsRemaining <= 1)
             {
                 _spriteRenderer.sprite = defaultSprite;
@@ -125,6 +130,13 @@ namespace KelvarJadewalker.KaBreak.bricks
             var spriteIndex = Mathf.Clamp(_hitsRemaining - 2, 0, maxSprites);
 
             _spriteRenderer.sprite = alternateSprites[spriteIndex];
+        }
+
+        public void MakeIndestructible()
+        {
+            // Can be called to turn the brick off to being destructible
+            isDestructible = false;
+            SetBrickDisplay();
         }
         
     }

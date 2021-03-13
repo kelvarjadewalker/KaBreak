@@ -125,7 +125,9 @@ MonoBehaviour:
   hitsPerBrick: 1
   speedUpFactor: 1
   isDestructible: 1
-  usePrototypeColors: 1
+  usePrototypeColors: 0
+  indestructibleSprite: {fileID: 21300000, guid: 38982fde4a77aca42a0961234fa82b89,
+    type: 3}
   alternateSprites:
   - {fileID: 21300000, guid: b829def6ff25d6c43b0b9cc3c86e5b54, type: 3}
   - {fileID: 21300000, guid: 1a9077e7497e72047a2b815c8d13192d, type: 3}
