@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using KelvarJadewalker.KaBreak.balls;
+using UnityEditor;
 
 namespace KelvarJadewalker.KaBreak.bricks
 {
@@ -12,7 +13,8 @@ namespace KelvarJadewalker.KaBreak.bricks
         [SerializeField] private bool isDestructible = true;
         [SerializeField] private bool usePrototypeColors = true;
 
-        [Header("Sprites")] 
+        [Header("Sprites")]
+        [SerializeField] private Sprite defaultSprite = null;
         [SerializeField] private Sprite indestructibleSprite = null;
         [SerializeField] private Sprite[] alternateSprites = null;
         
@@ -22,7 +24,7 @@ namespace KelvarJadewalker.KaBreak.bricks
         
         private LevelManager _levelManager;
         private SpriteRenderer _spriteRenderer;
-        private Sprite defaultSprite;
+        
         private int _hitsRemaining;
         private int _timesHit;
         
@@ -36,7 +38,6 @@ namespace KelvarJadewalker.KaBreak.bricks
         private void Start()
         {
             _levelManager = FindObjectOfType<LevelManager>();
-            defaultSprite = _spriteRenderer.sprite;
             
             _hitsRemaining = hitsPerBrick;
             _timesHit = 0;
@@ -136,6 +137,42 @@ namespace KelvarJadewalker.KaBreak.bricks
         {
             // Can be called to turn the brick off to being destructible
             isDestructible = false;
+            hitsPerBrick = 1;
+            speedUpFactor = 1;
+            _timesHit = 0;
+            SetBrickDisplay();
+        }
+
+        public void SetBrickLevel(int level)
+        {
+            switch (level)
+            {
+                case 1:
+                    hitsPerBrick = 1;
+                    speedUpFactor = 1;
+                    break;
+                case 2:
+                    hitsPerBrick = 2;
+                    speedUpFactor = 1;
+                    break;
+                case 3:
+                    hitsPerBrick = 3;
+                    speedUpFactor = 1;
+                    break;
+                case 4:
+                    hitsPerBrick = 4;
+                    speedUpFactor = 2;
+                    break;
+                case 5:
+                    hitsPerBrick = 5;
+                    speedUpFactor = 3;
+                    break;
+             }
+            
+            isDestructible = true;
+            usePrototypeColors = false;
+            _hitsRemaining = hitsPerBrick;
+            _timesHit = 0;
             SetBrickDisplay();
         }
         

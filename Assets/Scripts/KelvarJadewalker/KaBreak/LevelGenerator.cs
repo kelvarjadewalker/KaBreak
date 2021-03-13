@@ -25,10 +25,20 @@ namespace KelvarJadewalker.KaBreak
 
 
            var rowY = startY;
+           var rowcount = 1;
+           var rowFactor = 10;
+           var brickLevel = level;
+           var rowsPerLevel = rowFactor / level;
+           var rowsThisLevel = 0;
+           
+           Debug.Log("Rows per level : " + rowsPerLevel);
+           
+           
            while (rowY >= minY)
             {
                 var colX = startX;
                 var destructibleInRow = 0;
+                
                 
                 while (colX <= maxX)
                 {
@@ -37,7 +47,23 @@ namespace KelvarJadewalker.KaBreak
                     var brickScript = brick.GetComponent<Brick>();
 
                     // programmatically set the brick type 
-                    // very small chance the brick will be destructible
+                    // The last level reserves the top row for the super speed bricks
+                    
+                    if (level == 5 && rowcount == 1)
+                    {
+                        brickScript.SetBrickLevel(level);
+                    }
+                    else if (level < 5 && rowcount == 1)
+                    {
+                        // The top row is always set to the max level the player is on
+                        brickScript.SetBrickLevel(level);
+                    }
+                    else
+                    {
+                        brickScript.SetBrickLevel(brickLevel); 
+                    }
+                    
+                    // very small chance the brick will be indestructible
                     if (destructibleInLevel < maximumIndestructible && destructibleInRow < maximumIndestructibleInRow)
                     {
                         var choice = Random.Range(0, 100);
@@ -46,33 +72,22 @@ namespace KelvarJadewalker.KaBreak
                             brickScript.MakeIndestructible();
                             destructibleInRow++;
                             destructibleInLevel++;
-                            continue;
                         }
-                        
-                       
                     }
-                
-                    // We did not set the brick to indestructible
-                    switch (level)
-                    {
-                        case 1:
-                            break;
-                        case 2:
-                            break;
-                        case 3:
-                            break;
-                        case 4:
-                            break;
-                        case 5:
-                            break;
-                        
-                    }
-                    
                 
                     colX += spacingX;
                 }
 
                 rowY -= spacingY;
+                rowFactor--;
+                rowcount++;
+                rowsThisLevel++;
+                Debug.Log("Rows this level : " + rowsThisLevel);
+
+                if (rowsThisLevel < rowsPerLevel) continue;
+                brickLevel--;
+                rowsThisLevel = 0;
+                if (brickLevel < 1) brickLevel = 1;
             }
 
             
