@@ -31,9 +31,6 @@ namespace KelvarJadewalker.KaBreak
            var rowsPerLevel = rowFactor / level;
            var rowsThisLevel = 0;
            
-           Debug.Log("Rows per level : " + rowsPerLevel);
-           
-           
            while (rowY >= minY)
             {
                 var colX = startX;
@@ -82,7 +79,6 @@ namespace KelvarJadewalker.KaBreak
                 rowFactor--;
                 rowcount++;
                 rowsThisLevel++;
-                Debug.Log("Rows this level : " + rowsThisLevel);
 
                 if (rowsThisLevel < rowsPerLevel) continue;
                 brickLevel--;
