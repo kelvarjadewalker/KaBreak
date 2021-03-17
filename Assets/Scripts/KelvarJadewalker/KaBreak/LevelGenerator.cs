@@ -21,12 +21,12 @@ namespace KelvarJadewalker.KaBreak
             var spacingX = 1.0f;
             var spacingY = 0.5f;
             var maxX = 7.0f;
-            var minY = -1.0f;
+            var minY = -.5f;
 
 
            var rowY = startY;
            var rowcount = 1;
-           var rowFactor = 10;
+           var rowFactor = 9;
            var brickLevel = level;
            var rowsPerLevel = rowFactor / level;
            var rowsThisLevel = 0;
