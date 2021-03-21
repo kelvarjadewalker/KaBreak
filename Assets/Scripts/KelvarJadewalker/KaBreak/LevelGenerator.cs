@@ -16,11 +16,11 @@ namespace KelvarJadewalker.KaBreak
         {
             // by default a blue brick will be generated unless we step in
             
-            var startX = -7.0f;
+            var startX = -4.5f;
             var startY = 3.0f;
             var spacingX = 1.0f;
             var spacingY = 0.5f;
-            var maxX = 7.0f;
+            var maxX = 4.5f;
             var minY = -.5f;
 
 
@@ -85,10 +85,6 @@ namespace KelvarJadewalker.KaBreak
                 rowsThisLevel = 0;
                 if (brickLevel < 1) brickLevel = 1;
             }
-
-            
         }
-
-        
     }
 }

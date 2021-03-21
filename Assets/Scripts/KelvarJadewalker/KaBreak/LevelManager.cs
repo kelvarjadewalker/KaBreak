@@ -100,6 +100,7 @@ namespace KelvarJadewalker.KaBreak
             // only call it here so we can pass any level specific detail here.
             Debug.Log("Generating level");
             _levelGenerator.Generate(level);
+            Debug.Log("Level generation complete");
         }
         
     }

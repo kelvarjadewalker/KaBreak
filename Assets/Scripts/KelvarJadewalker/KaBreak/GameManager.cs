@@ -33,7 +33,7 @@ namespace KelvarJadewalker.KaBreak
             
             if (_gameState == GameState.GameLost || _gameState == GameState.GameWon)
             {
-                GUI.Label(new Rect(25, 70, 300, 50),  "GAME OVER PRES 'R' to RESTART" );
+                GUI.Label(new Rect(25, 70, 300, 50),  "GAME OVER PRESS 'R' to RESTART" );
             }
             else
             {
