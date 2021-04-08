@@ -73,27 +73,15 @@ namespace KelvarJadewalker.KaBreak.bricks
                 return;
             }
 
-            switch (_hitsRemaining)
+            _spriteRenderer.color = _hitsRemaining switch
             {
-                case  1:
-                    _spriteRenderer.color = Color.blue; 
-                    break;
-                case 2:
-                    _spriteRenderer.color = Color.green;
-                    break;
-                case 3:
-                    _spriteRenderer.color = Color.yellow;
-                    break;
-                case 4:
-                    _spriteRenderer.color = Color.red;
-                    break;
-                case 5:
-                    _spriteRenderer.color = Color.magenta;
-                    break;
-                default:
-                    _spriteRenderer.color = Color.blue; 
-                    break;
-            }
+                1 => Color.blue,
+                2 => Color.green,
+                3 => Color.yellow,
+                4 => Color.red,
+                5 => Color.magenta,
+                _ => Color.blue
+            };
         }
 
         private void SetBrickDisplay()
