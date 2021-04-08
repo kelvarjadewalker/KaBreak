@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8274756808452814980}
   - component: {fileID: 8274756808452814981}
   - component: {fileID: 8274756808452814979}
-  - component: {fileID: 8274756808452814978}
+  - component: {fileID: 3652014279226705492}
   m_Layer: 0
   m_Name: Brick
   m_TagString: Brick
@@ -48,6 +48,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -109,7 +110,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6322386, y: 0.31453347}
   m_EdgeRadius: 0
---- !u!114 &8274756808452814978
+--- !u!114 &3652014279226705492
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,12 +126,12 @@ MonoBehaviour:
   hitsPerBrick: 1
   speedUpFactor: 1
   isDestructible: 1
-  usePrototypeColors: 0
+  usePrototypeColors: 1
   defaultSprite: {fileID: 21300000, guid: fe7ff0593da4a8543994ff3cd4de80c3, type: 3}
   indestructibleSprite: {fileID: 21300000, guid: 38982fde4a77aca42a0961234fa82b89,
     type: 3}
   alternateSprites:
-  - {fileID: 21300000, guid: b829def6ff25d6c43b0b9cc3c86e5b54, type: 3}
-  - {fileID: 21300000, guid: 1a9077e7497e72047a2b815c8d13192d, type: 3}
+  - {fileID: 21300000, guid: 6a3392cbe6e2f064ea197e5abfabcd1e, type: 3}
+  - {fileID: 21300000, guid: 36da1cdfa77f9c54e975bfbddad25ede, type: 3}
   - {fileID: 21300000, guid: 13389cdd4ff4c56419023fd730ffbb1f, type: 3}
-  - {fileID: 21300000, guid: 079ebeffd37a2874593da6d27b851556, type: 3}
+  - {fileID: 21300000, guid: c0f608cc167e1db46874b04d2569cc6a, type: 3}

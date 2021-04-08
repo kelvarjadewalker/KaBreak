@@ -17,9 +17,6 @@ namespace KelvarJadewalker.KaBreak.bricks
         [SerializeField] private Sprite defaultSprite = null;
         [SerializeField] private Sprite indestructibleSprite = null;
         [SerializeField] private Sprite[] alternateSprites = null;
-        
-        
-        
         public bool IsDestructible => isDestructible;
         
         private LevelManager _levelManager;
@@ -31,8 +28,7 @@ namespace KelvarJadewalker.KaBreak.bricks
 
         private void Awake()
         {
-             
-            _spriteRenderer = GetComponent<SpriteRenderer>();
+             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         private void Start()
