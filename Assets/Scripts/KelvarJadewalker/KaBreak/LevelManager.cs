@@ -98,9 +98,9 @@ namespace KelvarJadewalker.KaBreak
         {
             // Level Generator is a separate script. We could call it from Game Manager but we'll
             // only call it here so we can pass any level specific detail here.
-            Debug.Log("Generating level");
+            // Debug.Log("Generating level");
             _levelGenerator.Generate(level);
-            Debug.Log("Level generation complete");
+            // Debug.Log("Level generation complete");
         }
         
     }
