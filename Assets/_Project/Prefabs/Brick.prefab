@@ -135,3 +135,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 36da1cdfa77f9c54e975bfbddad25ede, type: 3}
   - {fileID: 21300000, guid: 13389cdd4ff4c56419023fd730ffbb1f, type: 3}
   - {fileID: 21300000, guid: c0f608cc167e1db46874b04d2569cc6a, type: 3}
+  brickDestroyed: {fileID: 11400000, guid: 3ba06301f88d39b4180c64444706d5cc, type: 2}

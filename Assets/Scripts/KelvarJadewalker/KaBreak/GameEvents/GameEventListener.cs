@@ -7,8 +7,10 @@ namespace KelvarJadewalker.KaBreak.GameEvents
 {
     public class GameEventListener : MonoBehaviour
     {
-        [SerializeField] private GameEvent gameEvent;
-        [SerializeField] private UnityEvent unityEvent;
+        [SerializeField] protected GameEvent gameEvent;
+        [SerializeField] protected UnityEvent unityEvent;
+        
+        
 
         private void Awake() => gameEvent.Register(this);
         private void OnDestroy() => gameEvent.Deregister(this);

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using KelvarJadewalker.KaBreak.balls;
+using KelvarJadewalker.KaBreak.templates;
 
 
 namespace KelvarJadewalker.KaBreak.bricks
@@ -17,6 +18,8 @@ namespace KelvarJadewalker.KaBreak.bricks
         [SerializeField] private Sprite defaultSprite = null;
         [SerializeField] private Sprite indestructibleSprite = null;
         [SerializeField] private Sprite[] alternateSprites = null;
+
+       
         public bool IsDestructible => isDestructible;
         
         private LevelManager _levelManager;

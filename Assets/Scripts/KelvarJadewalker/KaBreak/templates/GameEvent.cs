@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace KelvarJadewalker.KaBreak.templates
 {
-    [CreateAssetMenu(menuName = "My Custom Objects/Game Event", fileName = "New Game Event")]
+    [CreateAssetMenu(menuName = "My Custom Objects/Game Event", fileName = "New Game Event", order = 51)]
     public class GameEvent : ScriptableObject
     {
         private HashSet<GameEventListener> _listeners = new HashSet<GameEventListener>();
@@ -14,6 +14,7 @@ namespace KelvarJadewalker.KaBreak.templates
             foreach (var globalEventListener in _listeners)
             {
                 globalEventListener.RaiseEvent();
+                Debug.Log("Invoke called for : "  + this);
             }
         }
 

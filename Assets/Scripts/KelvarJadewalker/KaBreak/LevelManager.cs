@@ -102,6 +102,11 @@ namespace KelvarJadewalker.KaBreak
             _levelGenerator.Generate(level);
             // Debug.Log("Level generation complete");
         }
+
+        public void RemoveBrick()
+        {
+            Debug.Log("KaBreak");
+        }
         
     }
 }
