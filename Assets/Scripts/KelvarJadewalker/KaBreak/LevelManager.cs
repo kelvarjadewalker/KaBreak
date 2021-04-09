@@ -26,12 +26,14 @@ namespace KelvarJadewalker.KaBreak
         // The Level manager handles game related object for this scene/level
         private GameManager _gameManager;
         private LevelGenerator _levelGenerator;
+        private SoundManager _soundManager;
 
         private void Awake()
         {
             // By convention these are guaranteed to exist
             _gameManager = FindObjectOfType<GameManager>();
             _levelGenerator = FindObjectOfType<LevelGenerator>();
+            _soundManager = FindObjectOfType<SoundManager>();
         }
 
         // Start is called before the first frame update
@@ -55,6 +57,7 @@ namespace KelvarJadewalker.KaBreak
         public void LostBrick(int points, Transform brick)
         {
             _gameManager.LostBrick(points * _scoreModifier);
+            _soundManager.PlayBrickSound();
             Instantiate(explosionPrefab, brick.position, explosionPrefab.transform.rotation);
             
             if (CanCollectPowerUp)
@@ -103,10 +106,5 @@ namespace KelvarJadewalker.KaBreak
             // Debug.Log("Level generation complete");
         }
 
-        public void RemoveBrick()
-        {
-            Debug.Log("KaBreak");
-        }
-        
     }
 }
