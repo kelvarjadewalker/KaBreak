@@ -20,7 +20,7 @@ namespace KelvarJadewalker.KaBreak
         private int _numberOfBricks;
         private int _numberOfLives;
         private int _ballsInPlay;
-        private int thisLevel = 1;
+        private int _thisLevel = 1;
         private int _score;
         
         private void OnGUI()
@@ -56,10 +56,10 @@ namespace KelvarJadewalker.KaBreak
              _levelManager = FindObjectOfType<LevelManager>();
              
              // Allow the designer to test arbitrary levels, this is only allowed on game start
-             if(setLevel > 1) thisLevel = setLevel;
+             if(setLevel > 1) _thisLevel = setLevel;
              
              _gameState = GameState.LevelGeneration;
-             _levelManager.GenerateLevel(thisLevel);
+             _levelManager.GenerateLevel(_thisLevel);
              
              // TODO : remap some of these variables since we are procedurally generating the level
              _numberOfBricks = _levelManager.GetNumberOfDestructibleBricks();
@@ -123,7 +123,7 @@ namespace KelvarJadewalker.KaBreak
         private void LevelWon()
         {
             // By convention the levels will be set in the Build Order so we can do math to get the next level
-            var nextLevel = thisLevel + 1;
+            var nextLevel = _thisLevel + 1;
             
             // For now there is just this level so this will always be true
             if (nextLevel >= numberOfLevels) _gameState = GameState.GameWon;

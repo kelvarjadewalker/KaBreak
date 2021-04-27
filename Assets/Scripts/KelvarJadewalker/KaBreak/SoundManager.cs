@@ -6,24 +6,22 @@ namespace KelvarJadewalker.KaBreak
     {
         [SerializeField] private AudioClip brickHitClip = null;
 
-        private AudioSource[] audioSources;
+        private AudioSource[] _audioSources;
 
         private void Awake()
         {
-            audioSources = GetComponents<AudioSource>();
-            
-           
+            _audioSources = GetComponents<AudioSource>();
         }
 
         // Start is called before the first frame update
         private void Start()
         {
-            Debug.Log("Number of Audio Sources Found :" + audioSources.Length);
+            Debug.Log("Number of Audio Sources Found :" + _audioSources.Length);
         }
 
         public void PlayBrickSound()
         {
-            foreach (var source in audioSources)
+            foreach (var source in _audioSources)
             {
                 if (source.isPlaying) continue;
                 source.PlayOneShot(brickHitClip);
